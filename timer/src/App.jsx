@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
-
   useEffect(() => {
     let interval = null;
     if (isActive) {
@@ -16,20 +14,16 @@ const Timer = () => {
     }
     return () => clearInterval(interval);
   }, [isActive, seconds]);
-
   const handleStart = () => {
     setIsActive(true);
   };
-
   const handlePause = () => {
     setIsActive(false);
   };
-
   const handleReset = () => {
     setIsActive(false);
     setSeconds(0);
   };
-
   return (
     <div className="timer-container">
       <div className="timer-box">
@@ -43,5 +37,4 @@ const Timer = () => {
     </div>
   );
 };
-
 export default Timer;
